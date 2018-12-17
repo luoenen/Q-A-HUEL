@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block web_name %}
+    详情页面-河南财经政法大学社会学系论坛
+{% endblock %}
+{% block main %}
+<h2 class="login-head">{{ question_model.title }}</h2>
+    <p class="detail-info">
+        <span>作者 : {{ question_model.author.name }}&emsp;&emsp;</span>
+        <span>时间 : {{ question_model.time }}</span>
+    </p>
+    <hr>
+    <p>
+    &emsp;&emsp;{{ question_model.context }}
+    </p>
+    <hr>
+    <form action="{{ url_for("comment") }}" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="请输入评语" name="comment">
+            <input type="hidden" class="form-control" placeholder="请输入评语" name="id" value="{{ question_model.id }}">
+        </div>
+        <div class="form-group" style="text-align: right">
+            <button  class="btn btn-primary">立即发表</button>
+        </div>
+    </form>
+    <ul class="Answer-List">
+    {% for comment in question_model.comment %}
+        <li class="commentLi">
+        <div>
+            <img class="commentIcon" src="{{ url_for("static", filename="images/icon.png") }}">
+            <span class="username">{{ comment.author.name }}</span>
+            <span class="time">{{ comment.time }}</span>
+        </div>
+        <p class="answer"><strong><i>
+            &emsp;&emsp;&emsp;&emsp;{{ comment.comment }}
+            </i>
+            </strong>
+        </p>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

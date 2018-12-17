@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block web_name %}
+登录中心-河南财经政法大学社会系论坛
+{% endblock %}
+{% block main %}
+    <h2 class="login-head">河南财经政法大学社会系论坛登录中心</h2>
+<form action="" method="post">
+    <div class="form-container">
+        <div class="form-group">
+            <input class="form-control" type="number" name="account" placeholder="请输入学号">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="请输入密码">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block">登录</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

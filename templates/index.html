@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block web_name %}
+河南财经政法大学社会系论坛
+{% endblock %}
+{% block main %}
+    <ul class="ul">
+        {% for question in questions  %}
+        <li class="li">
+            <div class="avatar-group">
+                <img class="avatar" src="{{ url_for("static",filename="images/icon.png") }}">
+            </div>
+            <div class="question-group">
+                <p class="question-title"><b><a href="{{ url_for("detail",question_id = question.id) }}">{{ question.title }}</a></b></p>
+                <p class="question-context">&emsp;&emsp;{{ question.context }}</p>
+                <div class="question-info">
+                     <span class="question-author">{{ question.author.name }}&emsp;</span>
+                     <span class="question-time">{{ question.time }}</span>
+                </div>
+            </div>
+        </li>
+
+    {% endfor %}
+
+    </ul>
+
+{% endblock %}

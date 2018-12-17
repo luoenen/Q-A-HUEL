@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block web_name %}
+发表问答-河南财经政法大学社会学系论坛
+{% endblock %}
+{% block main %}
+ <h2 class="login-head">河南财经政法大学社会系问答中心</h2>
+<form action="" method="post">
+    <div class="form-container">
+        <div class="form-group">
+            <input class="form-control" type="text" name="type" placeholder="请输文章所属类型">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="title" placeholder="请输入文章标题">
+        </div>
+         <div class="form-group">
+             <textarea class="form-control" name="context" rows="6" placeholder="请输入文章内容"></textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">立即发表文章</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
